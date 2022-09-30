@@ -9,13 +9,13 @@ class FlyingSite(models.Model):
 
     WIND_CHOICES = (
         ('N', 'N'),
+        ('NW', 'NW'),
         ('NE', 'NE'),
-        ('E', 'E'),
-        ('S', 'E'),
         ('S', 'S'),
+        ('SE', 'SE'),
         ('SW', 'SW'),
-        ('W', 'W'),
-        ('NW', 'NW'),)
+        ('E', 'E'),
+        ('W', 'W'),)
     site_name = models.CharField(max_length = 150, unique=True)
     wind_direction = models.CharField(max_length = 150, choices=WIND_CHOICES)
     slug = models.SlugField(max_length=200, unique=True)
