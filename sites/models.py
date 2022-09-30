@@ -32,7 +32,7 @@ class FlyingSite(models.Model):
         ordering = ["-updated_on"]
 
     def __str__(self):
-        return self.title
+        return self.site_name
 
     def number_of_likes(self):
         return self.like.count()
