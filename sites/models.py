@@ -27,6 +27,7 @@ class FlyingSite(models.Model):
     featured_image = CloudinaryField('image', default='placeholder')
     status = models.IntegerField(choices = STATUS, default = 0)
     likes = models.ManyToManyField(User, related_name= "site_likes", blank = "true")
+    approved = models.BooleanField(default=False)
     
     class Meta:
         ordering = ["-updated_on"]
