@@ -27,9 +27,9 @@ class FlyingSite(models.Model):
         return self.like.count()
 
 class Comment(models.Model):
-    flying_site = models.ForeignKey(FlyingSite, on_delete=models.CASCADE, related_name="comments")
-    name = models.CharField(max_length=100)
-    email = models.EmailField()
+    pilot = models.ForeignKey(FlyingSite, on_delete=models.CASCADE, related_name="comments")
+    name = models.CharField(max_length=100, default="Unknown Pilot")
+    email = models.EmailField(default="pilot@pilot.com")
     body = models.TextField()
     created_on = models.DateTimeField(auto_now_add=True)
     approved = models.BooleanField(default=False)
@@ -39,4 +39,20 @@ class Comment(models.Model):
 
     def __str__(self):
         return f"Comment {self.body} by {self.name}"
+
+class Photos(models.Model):
+    taken_by = models.ForeignKey(User, on_delete=models.CASCADE, related_name="photos")
+    site_name = models.CharField(max_length = 150, unique=True)
+    updated_on = models.DateTimeField(auto_now_add=True)
+
+    
+
+    class Meta:
+        ordering = ["-updated_on"]
+
+    def __str__(self):
+        return self.title
+
+    def number_of_likes(self):
+        return self.like.count()
 

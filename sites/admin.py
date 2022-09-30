@@ -1,7 +1,8 @@
 from django.contrib import admin
-from .models import FlyingSite
-from .models import Comment
+from .models import FlyingSite, Comment, Photos
+
 
 admin.site.register(FlyingSite)
 admin.site.register(Comment)
+admin.site.register(Photos)
 
