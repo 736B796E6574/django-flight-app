@@ -9,4 +9,5 @@ admin.site.register(Photos)
 @admin.register(FlyingSite)
 class PostAdmin(SummernoteModelAdmin):
     summernote_fields = ('overview')
+    prepopulated_fields = {'slug': ('site_name',)}
 
