@@ -2,11 +2,22 @@ from django.db import models
 from django.contrib.auth.models import User
 from cloudinary.models import CloudinaryField
 
+
 STATUS = ((0, "Draft"), (1, "Published"))
 
 class FlyingSite(models.Model):
+
+    WIND_CHOICES = (
+        ('N', 'N'),
+        ('NE', 'NE'),
+        ('E', 'E'),
+        ('S', 'E'),
+        ('S', 'S'),
+        ('SW', 'SW'),
+        ('W', 'W'),
+        ('NW', 'NW'),)
     site_name = models.CharField(max_length = 150, unique=True)
-    wind_direction = models.CharField(max_length = 150, unique=False)
+    wind_direction = models.CharField(max_length = 150, choices=WIND_CHOICES)
     slug = models.SlugField(max_length=200, unique=True)
     pilot = models.ForeignKey(User, on_delete=models.CASCADE, related_name="flying_sites")
     updated_on = models.DateTimeField(auto_now=True)
