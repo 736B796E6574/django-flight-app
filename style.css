@@ -1,0 +1,16 @@
+@import url('https://fonts.googleapis.com/css2?family=Lato:wght@100;300;400;700;900&family=Montserrat:wght@100;300;400;500;600;700;800&display=swap');
+
+nav {
+    font-family: 'Montserrat', sans-serif;
+    background-color: #e30713;
+    color: #fafafa;
+    font-weight: 400;
+}
+
+nav a {
+    color: #fafafa;
+}
+
+.navbar-brand {
+    letter-spacing: 0.5rem;
+}
