@@ -28,6 +28,7 @@ class FlyingSite(models.Model):
     status = models.IntegerField(choices = STATUS, default = 0)
     likes = models.ManyToManyField(User, related_name= "site_likes", blank = "true")
     approved = models.BooleanField(default=False)
+    discussion = models.TextField()
     
     class Meta:
         ordering = ["-updated_on"]

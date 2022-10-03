@@ -6,6 +6,7 @@
     box-sizing: border-box;
 }
 
+
 nav {
     border-top: 1px solid #fafafa;
     font-family: 'Montserrat', sans-serif;
@@ -100,4 +101,12 @@ nav a {
     border-top: 1px solid #3d0303;
     border-bottom: 1px solid #fafafa;
 
+}
+
+#site-card div {
+    background-color: rgba(21, 104, 187, 0.71) !important;
+}
+
+#wind-direction {
+    font-size: 3rem;
 }

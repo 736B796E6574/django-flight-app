@@ -9,27 +9,29 @@
         <div class="col-12 mt-3 left">
             <div class="row">
                 {% for site in flyingsite_list %}
-                <div class="col-md-4">
+                <div class="col-md-4" id="site-card">
                     <div class="card mb-4">
                         <div class="card-body">
                             <div class="image-container">
-                                {% if "placeholder" in flyingsite.featured_image.url %}
+                                {% if "placeholder" in site.featured_image.url %}
                                 <img class="card-img-top"
                                     src="https://xcmag.com/wp-content/uploads/2018/01/medellin.jpg">
                                 {% else %}
-                                <img class="card-img-top" src=" {{ post.featured_image.url }}">
+                                <img class="card-img-top" src=" {{ site.featured_image.url }}">
                                 {% endif %}
-                                <div class="image-flash">
-                                    <p class="author">Author: {{ flyingsite.pilot }}</p>
-                                </div>
                             </div>
+                            <h2 id="wind-direction">{{ site.wind_direction }}</h2>
                             <a href="#" class="post-link">
-                                <h2 class="card-title">{{ flyingsite.site_name }}</h2>
-                                <p class="card-text">{{ flyingsite.overview }}</p>
+
+                                <h2 class="card-title">{{ site.site_name }}</h2>
+
                             </a>
                             <hr />
-                            <p class="card-text text-muted h6">{{ flyingsite.created_on}} <i class="far fa-heart"></i>
-                                {{ flyingsite.likes }}</p>
+                            <p class="card-text text-muted h6">{{ site.created_on}} <i class="far fa-heart"></i>
+                                {{ site.likes }}</p>
+                            <div class="image-flash">
+                                <p class="author">Added by: {{ site.pilot }}</p>
+                            </div>
                         </div>
                     </div>
                 </div>
