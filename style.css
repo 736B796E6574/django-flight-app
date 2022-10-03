@@ -9,7 +9,7 @@
 nav {
     border-top: 1px solid #fafafa;
     font-family: 'Montserrat', sans-serif;
-    background-color: #e30713;
+    background-image: linear-gradient(-360deg, #cd454c, #e30713);
     color: #fafafa;
     font-weight: 400;
 }
@@ -20,7 +20,7 @@ nav a {
 }
 
 #navbar {
-    border-bottom: 1px solid #fafafa;
+    /* border-bottom: 1px solid #fafafa; */
 }
 
 .navbar-brand {
@@ -77,6 +77,7 @@ nav a {
     color: #fafafa;
     font-size: 2rem;
     margin: 0 auto;
+    background-image: linear-gradient(-1deg, #cd454c, #e30713);
 
 }
 
@@ -96,6 +97,7 @@ nav a {
 }
 
 #footer-container {
-    border-top: 1px solid #fafafa;
+    border-top: 1px solid #3d0303;
     border-bottom: 1px solid #fafafa;
+
 }
