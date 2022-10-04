@@ -101,3 +101,14 @@ nav a {
     border-bottom: 1px solid #fafafa;
 
 }
+
+#card {
+    background-color: rgba(0, 0, 0, 0.35);
+    color: black;
+    text-align: center;
+}
+
+#card h2 {
+    margin-top: 10px;
+    color: #000000cc;
+}
