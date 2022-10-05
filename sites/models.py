@@ -53,19 +53,20 @@ class Comment(models.Model):
     def __str__(self):
         return f"Comment {self.body} by {self.name}"
 
-class Photos(models.Model):
-    taken_by = models.ForeignKey(User, on_delete=models.CASCADE, related_name="photos")
+class Photo(models.Model):
+    featured_image = CloudinaryField('image', default='placeholder')
+    uploaded_by = models.ForeignKey(User, on_delete=models.CASCADE, related_name="photo")
     site_name = models.CharField(max_length = 150, unique=True)
     updated_on = models.DateTimeField(auto_now_add=True)
-
-    
+    approved = models.BooleanField(default=False)
+    status = models.IntegerField(choices = STATUS, default = 0)
+    slug = models.SlugField(max_length=200, unique=True)
 
     class Meta:
         ordering = ["-updated_on"]
 
     def __str__(self):
-        return self.title
+        return self.site_name 
 
-    def number_of_likes(self):
-        return self.like.count()
+    
 

@@ -2,7 +2,7 @@ import re
 from django.views import generic, View
 from django.shortcuts import render, get_object_or_404
 from django.http import HttpResponse
-from .models import FlyingSite
+from .models import FlyingSite, Photo
 
 class SiteList(generic.ListView):
     model = FlyingSite
@@ -34,3 +34,12 @@ def index(request):
         request,
         "index.html",
     )
+
+class PhotoList(generic.ListView):
+    model = Photo
+    queryset = Photo.objects.filter(status=1).order_by('-updated_on')
+    template_name = 'gallery.html'
+    paginate_by = 8
+    
+
+        
