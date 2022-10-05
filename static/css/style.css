@@ -9,6 +9,7 @@
 
 #body {
     min-height: 100vh;
+    background: linear-gradient(344deg, rgba(10, 156, 237, 1) 0%, rgba(144, 204, 213, 1) 16%, rgba(0, 181, 255, 1) 100%);
 }
 
 nav {
@@ -108,7 +109,7 @@ nav a {
 }
 
 #card {
-    background-color: rgba(0, 0, 0, 0.35);
+    background-color: #fafafa;
     color: black;
     text-align: center;
     font-family: 'Montserrat', sans-serif;
