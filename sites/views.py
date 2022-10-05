@@ -40,6 +40,10 @@ class PhotoList(generic.ListView):
     queryset = Photo.objects.filter(status=1).order_by('-updated_on')
     template_name = 'gallery.html'
     paginate_by = 8
-    
 
-        
+def Contact(request):
+    return render(
+        request,
+        "contact.html",
+    )
+     
