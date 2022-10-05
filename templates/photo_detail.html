@@ -1,1 +1,45 @@
-You did it!
+{% extends "base.html" %}
+
+{% block content %}
+
+<div class="container-fluid" id="body">
+    <div class="row">
+
+        <!-- Blog Entries Column -->
+        <div class="col-12 mt-3 left">
+            <div class="row">
+
+                <div class="col-md-12" id="site-card">
+                    <a href="{% url 'photo_detail' photo.slug %}" class="post-link">
+                        <div class="card shadow mb-4">
+                            <div class="card-body" id="card">
+                                <div class="image-container">
+                                    {% if "placeholder" in photo.featured_image.url %}
+                                    <img class="card-img-top"
+                                        src="https://xcmag.com/wp-content/uploads/2018/01/medellin.jpg">
+                                    {% else %}
+                                    <img class="card-img-top" src=" {{ photo.featured_image.url }}">
+                                    {% endif %}
+                                </div>
+                                <h2 class="card-title">{{ photo.site_name }}</h2>
+                                <p>Uploaded by: {{ photo.uploaded_by }}</p>
+                                <p>Updated on: {{ photo.updated_on }}</p>
+
+
+
+
+                            </div>
+                        </div>
+                    </a>
+                </div>
+
+            </div>
+            <div class="row">
+
+            </div>
+        </div>
+    </div>
+
+</div>
+
+{%endblock%}
