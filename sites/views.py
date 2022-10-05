@@ -12,9 +12,10 @@ class SiteList(generic.ListView):
 
 class SiteDetail(View):
     def get(self, request, slug, *args, **kwargs):
+        model = FlyingSite
         queryset = FlyingSite.objects.filter(status=1)
-        site = get_object_or_404(queryset, slug =slug)
-        comments = site.discussion.filter(approved = True).order_by('created on')
+        site = get_object_or_404(queryset, slug = slug)
+        
         liked = False
         if site.likes.filter(id=self.request.user.id).exists():
             liked = True
@@ -24,7 +25,6 @@ class SiteDetail(View):
             "site_detail.html",
             {
             "site":site,
-            "comments": comments,
             "liked":liked,
             }
         )
@@ -46,4 +46,18 @@ def Contact(request):
         request,
         "contact.html",
     )
+
+class PhotoDetail(View):
+    def get(self, request, slug, *args, **kwargs):
+        model = Photo
+        queryset = Photo.objects.filter(status=1)
+        photo = get_object_or_404(queryset, slug = slug)
+        
+        return render(
+            request,
+            "photo_detail.html",
+            {
+            "photo":photo,
+            }
+        )
      
