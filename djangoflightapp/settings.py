@@ -30,7 +30,7 @@ SECRET_KEY = os.environ.get('SECRET_KEY')
 DEBUG = True
 
 ALLOWED_HOSTS = ['djangoflightapp.herokuapp.com', '127.0.0.1']
-
+ACCOUNT_EMAIL_VERIFICATION = 'none'
 
 # Application definition
 
