@@ -27,6 +27,7 @@ nav a {
 
 #navbar {
     /* border-bottom: 1px solid #fafafa; */
+    width: 100vw;
 }
 
 .navbar-brand {
@@ -117,5 +118,17 @@ nav a {
 
 #card h2 {
     margin-top: 10px;
-    color: #000000cc;
+
+}
+
+#wind-direction {
+    color: #e30713;
+}
+
+a:hover {
+    text-decoration: none;
+}
+
+.headings {
+    color: #e30713;
 }

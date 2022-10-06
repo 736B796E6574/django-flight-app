@@ -1,90 +1,60 @@
-{% extends 'base.html' %} {% block content %}
+{% extends "base.html" %}
 
-<div class="masthead" id="body">
-    <div class="container">
-        <div class="row g-0">
-            <div class="col-md-6 masthead-text">
-                <!-- Post title goes in these h1 tags -->
-                <h1 class="post-title">{{ site.site_name }}</h1>
-                <!-- Post author goes before the | the post's created date goes after -->
-                <p class="post-subtitle">{{ site.pilot }} | {{ site.updated_on }}</p>
-                <p>Overview:</p>
-                <p class="card-text ">
-                    {{ site.overview | safe }}
-                </p>
-                <p>Landing Information:</p>
-                <p class="card-text ">
-                    {{ site.landing_information | safe }}
-                </p>
-                <p>Warnings:</p>
-                <p class="card-text ">
-                    {{ site.warnings | safe }}
-                </p>
-            </div>
-            <div class="d-none d-md-block col-md-6 masthead-image">
-                <!-- The featured image URL goes in the src attribute -->
-                {% if "placeholder" in site.featured_image.url %}
-                <img src="https://xcmag.com/wp-content/uploads/2018/01/medellin.jpg" width="100%">
-                {% else %}
-                <img src=" {{ site.featured_image.url }}" width="100%">
-                {% endif %}
-            </div>
-        </div>
-    </div>
-</div>
+{% block content %}
 
-<div class="container">
-
+<div class="container-fluid" id="body">
     <div class="row">
 
-        <div class="col-1">
-            <!-- The number of likes goes before the closing strong tag -->
-            <strong class="text-secondary"><i class="far fa-heart"></i> {{ site.likes }} </strong>
-        </div>
-        <div class="col-1">
-            {% with comments.count as total_comments %}
-            <strong class="text-secondary"><i class="far fa-comments"></i>
-                <!-- Our total_comments variable goes before the closing strong tag -->
-                {{ total_comments }}</strong>
-            {% endwith %}
-        </div>
-    </div>
-</div>
-</div>
-</div>
-<div class="row">
-    <div class="col">
-        <hr>
-    </div>
-</div>
-<div class="row">
-    <div class="col-md-8 card mb-4  mt-3 ">
-        <h3>Comments:</h3>
-        <div class="card-body">
-            <!-- We want a for loop inside the empty control tags to iterate through each comment in comments -->
-            {% for comment in comments %}
-            <div class="comments" style="padding: 10px;">
-                <p class="font-weight-bold">
-                    <!-- The commenter's name goes here. Check the model if you're not sure what that is -->
-                    {{ comment.name }}
-                    <span class=" text-muted font-weight-normal">
-                        <!-- The comment's created date goes here -->
-                        {{ comment.created_on }}
-                    </span> wrote:
-                </p>
-                <!-- The body of the comment goes before the | -->
-                {{ comment.body | linebreaks }}
+        <!-- Blog Entries Column -->
+        <div class="col-12 mt-3 left">
+            <div class="row">
+
+                <div class="col-md-12" id="site-card">
+
+                    <div class="card shadow mb-4">
+                        <div class="card-body" id="card">
+                            <div class="image-container">
+                                {% if "placeholder" in site.featured_image.url %}
+                                <img class="card-img-top"
+                                    src="https://xcmag.com/wp-content/uploads/2018/01/medellin.jpg">
+                                {% else %}
+                                <img class="card-img-top" src=" {{ photo.featured_image.url }}">
+                                {% endif %}
+                            </div>
+                            <h2 id="wind-direction">{{ site.wind_direction }}</h2>
+                            <h1 class="post-title">{{ site.site_name }}</h1>
+                            <p class="post-subtitle">{{ site.pilot }} | {{ site.updated_on }}</p>
+                            <hr>
+                            <p class="headings">Overview:</p>
+                            <p class="card-text ">
+                                {{ site.overview | safe }}
+                            </p>
+                            <hr>
+                            <p class="headings">Landing Information:</p>
+                            <p class="card-text ">
+                                {{ site.landing_information | safe }}
+                            </p>
+                            <hr>
+                            <p class="headings">Warnings:</p>
+                            <p class="card-text ">
+                                {{ site.warnings | safe }}
+                            </p>
+
+
+
+
+                        </div>
+                    </div>
+
+                </div>
+
             </div>
-            <!-- Our for loop ends here -->
-            {% endfor %}
+            <div class="row">
+
+            </div>
         </div>
     </div>
-    <div class="col-md-4 card mb-4  mt-3 ">
-        <div class="card-body">
-            <!-- For later -->
-        </div>
-    </div>
-</div>
+
 </div>
 
-{% endblock content %}
+{%endblock%}
